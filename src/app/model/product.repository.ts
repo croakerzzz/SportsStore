@@ -4,6 +4,7 @@ import {StaticDataSource} from "./static.datasource";
 
 @Injectable()
 export class ProductRepository {
+
   private products: Product[] = [];
   private categories: string[] = [];
 
@@ -29,4 +30,5 @@ export class ProductRepository {
   getCategories(): string[] {
     return this.categories;
   }
+
 }
