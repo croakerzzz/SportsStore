@@ -24,7 +24,7 @@ export class ProductRepository {
       .filter(p => category == null || category == p.category);
   }
 
-  getProduct(id: number): Product {
+  getProduct(id: number): Product | undefined {
     return this.products.find(p => p.id == id);
   }
 
