@@ -2,18 +2,20 @@ import {Component} from "@angular/core";
 import {ProductRepository} from "../model/product.repository";
 import {Product} from "../model/product.model";
 import {Cart} from "../model/cart.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "app-store",
   templateUrl: "store.component.html"
 })
 export class StoreComponent {
-  public selectedCategory : string | null | undefined = null;
+  public selectedCategory: string | null | undefined = null;
   public productsPerPage = 4;
   public selectedPage = 1;
 
   constructor(private repository: ProductRepository,
-              private cart: Cart) {
+              private cart: Cart,
+              private router: Router) {
   }
 
   get products(): Product[] {
@@ -46,6 +48,7 @@ export class StoreComponent {
 
   addProductToCart(product: Product) {
     this.cart.addLine(product);
+    this.router.navigateByUrl("/cart");
   }
 
   // get pageNumbers(): number[] {
