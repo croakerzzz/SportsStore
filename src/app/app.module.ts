@@ -8,6 +8,7 @@ import {StoreComponent} from "./store/store.component";
 import {CartDetailComponent} from "./store/cartDetail.component";
 import {CheckoutComponent} from "./store/checkout.component";
 import {StoreFirstGuard} from "./storeFirst.guard";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {StoreFirstGuard} from "./storeFirst.guard";
   imports: [
     BrowserModule,
     StoreModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {
         path: "store",
