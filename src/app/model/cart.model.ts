@@ -42,7 +42,7 @@ export class Cart {
     this.cartPrice = 0;
     this.lines.forEach(l => {
       this.itemCount += l.quantity;
-      this.cartPrice += (l.quantity * l.product.price);
+      this.cartPrice += (l.quantity * l.product.price!);
     })
   }
 }
@@ -53,6 +53,6 @@ export class CartLine {
   }
 
   get lineTotal() {
-    return this.quantity * this.product.price;
+    return this.quantity * this.product.price!;
   }
 }

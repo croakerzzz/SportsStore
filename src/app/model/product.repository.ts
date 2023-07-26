@@ -6,7 +6,7 @@ import {RestDataSource} from "./rest.datasource";
 export class ProductRepository {
 
   private products: Product[] = [];
-  private categories: string[] = [];
+  private categories: (string | undefined)[] = [];
 
   constructor(private dataSource: RestDataSource) {
     dataSource.getProducts().subscribe(data => {
@@ -28,7 +28,7 @@ export class ProductRepository {
     return this.products.find(p => p.id == id);
   }
 
-  getCategories(): string[] {
+  getCategories(): (string | undefined)[] {
     return this.categories;
   }
 

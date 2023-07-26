@@ -24,7 +24,7 @@ export class StoreComponent {
       .slice(pageIndex, pageIndex + this.productsPerPage);
   }
 
-  get categories(): string[] {
+  get categories(): (string | undefined)[] {
     return this.repository.getCategories();
   }
 
