@@ -4,10 +4,11 @@ import {AuthComponent} from "./auth.component";
 import {AdminComponent} from "./admin.component";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {AuthGuard} from "./auth.guard";
 
 let routing = RouterModule.forChild([
   {path: "auth", component: AuthComponent},
-  {path: "main", component: AdminComponent},
+  {path: "main", component: AdminComponent, canActivate: [AuthGuard]},
   {path: "**", redirectTo: "auth"}
 ]);
 
@@ -16,6 +17,9 @@ let routing = RouterModule.forChild([
     CommonModule,
     FormsModule,
     routing
+  ],
+  providers: [
+    AuthGuard
   ],
   declarations: [
     AuthComponent,
